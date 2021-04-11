@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.2.2 (Python 3.9.0 on win32)" generated="20210410 10:47:14.463" rpa="false">
+<suite id="s1" name="Mobile" source="C:\projetos_VS\DesafioMobile\tests\Mobile.robot">
+<test id="s1-t1" name="TC01: Deve somar dois valores">
+<kw name="Abrir aplicativo" library="Resource" type="setup">
+<kw name="Set Appium Timeout" library="AppiumLibrary">
+<doc>Sets the timeout in seconds used by various keywords.</doc>
+<arguments>
+<arg>10</arg>
+</arguments>
+<status status="PASS" starttime="20210410 10:47:14.591" endtime="20210410 10:47:14.591"></status>
+</kw>
+<kw name="Open Application" library="AppiumLibrary">
+<doc>Opens a new application to given Appium server.
+Capabilities of appium server, Android and iOS,
+Please check https://github.com/appium/appium/blob/master/docs/en/writing-running-appium/server-args.md
+| *Option*            | *Man.* | *Description*     |
+| remote_url          | Yes    | Appium server url |
+| alias               | no     | alias             |</doc>
+<arguments>
+<arg>http://127.0.0.1:4723/wd/hub</arg>
+<arg>automationName=UiAutomator2</arg>
+<arg>platformName=Android</arg>
+<arg>deviceName=emulator-5554</arg>
+<arg>app=${EXECDIR}/app/calculadora-simples-android.apk</arg>
+</arguments>
+<status status="PASS" starttime="20210410 10:47:14.591" endtime="20210410 10:47:20.483"></status>
+</kw>
+<status status="PASS" starttime="20210410 10:47:14.590" endtime="20210410 10:47:20.483"></status>
+</kw>
+<kw name="Aguardar Carregamento" library="Home">
+<kw name="Wait Until Page Contains" library="AppiumLibrary">
+<doc>Waits until `text` appears on current page.</doc>
+<arguments>
+<arg>Simple Calculator Android</arg>
+</arguments>
+<status status="PASS" starttime="20210410 10:47:20.484" endtime="20210410 10:47:21.014"></status>
+</kw>
+<status status="PASS" starttime="20210410 10:47:20.484" endtime="20210410 10:47:21.014"></status>
+</kw>
+<kw name="Inserindo valores" library="Home">
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${valor1}</arg>
+</arguments>
+<msg timestamp="20210410 10:47:21.015" level="INFO">Clicking element 'id=com.example.leonardomenezes.simplecalculatorandroid:id/android_field_first_number'.</msg>
+<status status="PASS" starttime="20210410 10:47:21.015" endtime="20210410 10:47:21.084"></status>
+</kw>
+<kw name="Input Text" library="AppiumLibrary">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>${valor1}</arg>
+<arg>2</arg>
+</arguments>
+<msg timestamp="20210410 10:47:21.085" level="INFO">Typing text '2' into text field 'id=com.example.leonardomenezes.simplecalculatorandroid:id/android_field_first_number'</msg>
+<status status="PASS" starttime="20210410 10:47:21.084" endtime="20210410 10:47:22.477"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${valor2}</arg>
+</arguments>
+<msg timestamp="20210410 10:47:22.478" level="INFO">Clicking element 'id=com.example.leonardomenezes.simplecalculatorandroid:id/android_field_second_number'.</msg>
+<status status="PASS" starttime="20210410 10:47:22.477" endtime="20210410 10:47:23.134"></status>
+</kw>
+<kw name="Input Text" library="AppiumLibrary">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>${valor2}</arg>
+<arg>2</arg>
+</arguments>
+<msg timestamp="20210410 10:47:23.135" level="INFO">Typing text '2' into text field 'id=com.example.leonardomenezes.simplecalculatorandroid:id/android_field_second_number'</msg>
+<status status="PASS" starttime="20210410 10:47:23.134" endtime="20210410 10:47:24.398"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${botaoSoma}</arg>
+</arguments>
+<msg timestamp="20210410 10:47:24.398" level="INFO">Clicking element 'id=com.example.leonardomenezes.simplecalculatorandroid:id/android_button_sum'.</msg>
+<status status="PASS" starttime="20210410 10:47:24.398" endtime="20210410 10:47:25.051"></status>
+</kw>
+<status status="PASS" starttime="20210410 10:47:21.015" endtime="20210410 10:47:25.052"></status>
+</kw>
+<kw name="Validar Valores" library="Home">
+<kw name="Wait Until Page Contains" library="AppiumLibrary">
+<doc>Waits until `text` appears on current page.</doc>
+<arguments>
+<arg>${valorSoma}</arg>
+</arguments>
+<status status="PASS" starttime="20210410 10:47:25.052" endtime="20210410 10:47:25.556"></status>
+</kw>
+<kw name="Get Text" library="AppiumLibrary">
+<doc>Get element text (for hybrid and mobile browser use `xpath` locator, others might cause problem)</doc>
+<arguments>
+<arg>${validarSoma}</arg>
+</arguments>
+<assign>
+<var>${valor}</var>
+</assign>
+<msg timestamp="20210410 10:47:25.578" level="INFO">Element 'id=com.example.leonardomenezes.simplecalculatorandroid:id/android_result_text' text is '4' </msg>
+<msg timestamp="20210410 10:47:25.578" level="INFO">${valor} = 4</msg>
+<status status="PASS" starttime="20210410 10:47:25.556" endtime="20210410 10:47:25.578"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${valor}</arg>
+<arg>${valorSoma}</arg>
+</arguments>
+<status status="PASS" starttime="20210410 10:47:25.578" endtime="20210410 10:47:25.578"></status>
+</kw>
+<status status="PASS" starttime="20210410 10:47:25.052" endtime="20210410 10:47:25.578"></status>
+</kw>
+<kw name="Fechar aplicativo" library="Resource" type="teardown">
+<kw name="Close Application" library="AppiumLibrary">
+<doc>Closes the current application and also close webdriver session.</doc>
+<status status="PASS" starttime="20210410 10:47:25.579" endtime="20210410 10:47:25.957"></status>
+</kw>
+<status status="PASS" starttime="20210410 10:47:25.579" endtime="20210410 10:47:25.958"></status>
+</kw>
+<status status="PASS" starttime="20210410 10:47:14.590" endtime="20210410 10:47:25.958" critical="yes"></status>
+</test>
+<status status="PASS" starttime="20210410 10:47:14.464" endtime="20210410 10:47:25.959"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0">Critical Tests</stat>
+<stat pass="1" fail="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" id="s1" name="Mobile">Mobile</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
